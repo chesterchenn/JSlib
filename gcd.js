@@ -4,7 +4,6 @@
  * @param {number} q
  * @return {number} result
  * @author chesterchenn
- * 
  */
 
 function gcd(p, q) {
