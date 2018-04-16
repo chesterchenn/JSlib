@@ -1,6 +1,7 @@
 /*
  * 二分查找/折半查找
  * 重要前提：只针对有序排列
+ * 时间复杂度O(logn)
  * @param {array} arr被检索的数组
  * @key {number} key检索的值
  * @return {number,boolean} position or false
