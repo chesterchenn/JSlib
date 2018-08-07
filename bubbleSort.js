@@ -1,3 +1,4 @@
+import swap from './swap'
 /*
  * 冒泡排序
  * 稳定排序，时间复杂度O(n^2)
@@ -6,10 +7,9 @@
  */
 
 /*
- * 冒泡排序的简易用法(交换)
- * 引用swap函数
+ * 冒泡排序的简易用法
  */
-function BubbleSort(array) {
+var BubbleSort = function(array) {
   var len = array.length
   for(var i = 0; i < len - 1; i++) {
     for (var j = i + 1; j < len; j++) {
@@ -23,25 +23,23 @@ function BubbleSort(array) {
 
 /*
  * 标准的冒泡排序
- * 引用swap函数
  */
-function BubbleSort(array) {
-    var len = array.length
-    for (var i = 0; i < len - 1; i++) {
-      for (var j = len - 1; j >= i; j--) {
-        if (array[j] > array[j+1]) {
-          array = swap(array, j, j+1)
-        }
+var BubbleSort = function(array) {
+  var len = array.length
+  for (var i = 0; i < len - 1; i++) {
+    for (var j = len - 1; j >= i; j--) {
+      if (array[j] > array[j+1]) {
+        array = swap(array, j, j+1)
       }
     }
-    return array
+  }
+  return array
 }
 
 /*
  * 增加flag
- * 引用swap函数
  */
-function BubbleSort(array) {
+var BubbleSort = function(array) {
   var len = array.length
   var flag = true
   for (var i = 0; i < (len - 1) && flag; i++) {
