@@ -21,7 +21,7 @@ var MergeSort = function(arr) {
     for (var k = low; k <= high; k++) {
       if (i > mid)                      a[k] = arrCopy[j++]  // 左半边用尽(取右半边的元素)
       else if (j > high)                a[k] = arrCopy[i++]  // 右半边用尽(取左半边的元素)
-      else if (arrCopy[i] < arrCopy[j]) a[k] = arrCopy[i++]  // 左半边的当前元素小于右半边的当前元素(取左半边的当前元素)
+      else if (arrCopy[i] <= arrCopy[j]) a[k] = arrCopy[i++]  // 左半边的当前元素小于右半边的当前元素(取左半边的当前元素)
       else                              a[k] = arrCopy[j++]  // 右半边的当前元素小于左半边的当前元素(取右半边的当前元素)
     }
     return a
@@ -59,7 +59,7 @@ var MergeSort = function(arr) {
     for (var k = low; k <= high; k++) {
       if (i > mid)                      a[k] = arrCopy[j++]  // 左半边用尽(取右半边的元素)
       else if (j > high)                a[k] = arrCopy[i++]  // 右半边用尽(取左半边的元素)
-      else if (arrCopy[i] < arrCopy[j]) a[k] = arrCopy[i++]  // 左半边的当前元素小于右半边的当前元素(取左半边的当前元素)
+      else if (arrCopy[i] <= arrCopy[j]) a[k] = arrCopy[i++]  // 左半边的当前元素小于右半边的当前元素(取左半边的当前元素)
       else                              a[k] = arrCopy[j++]  // 右半边的当前元素小于左半边的当前元素(取右半边的当前元素)
     }
     return a
