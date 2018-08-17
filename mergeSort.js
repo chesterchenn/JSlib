@@ -3,7 +3,7 @@
  * @param {array} 进行排序的数组
  * @return {array} 排序后的数组
  */
-var MergeSort = function(arr) {
+var mergeSort = function(arr) {
   var arrCopy = []
    /*
     * 原地归并的方法
@@ -41,7 +41,7 @@ var MergeSort = function(arr) {
  * @return {array} 排序后的数组
  */
 
-var MergeSort = function(arr) {
+var mergeSort = function(arr) {
   var arrCopy = []    //一次性声明
    /*
     * 原地归并的方法
