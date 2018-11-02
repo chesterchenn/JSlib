@@ -1,7 +1,8 @@
 import swap from './swap';
 
 /**
- * 希尔排序 ShellSort 针对有序序列在插入时采用交换法
+ * 希尔排序  
+ * 针对有序序列在插入时采用交换法
  * @param {Array} arr 进行排序的数组
  */
 var shellSort = function(arr) {
@@ -23,7 +24,8 @@ var shellSort = function(arr) {
 
 
 /**
- * 希尔排序 ShellSort 针对有序序列在插入时采用移动法
+ * 希尔排序 
+ * 针对有序序列在插入时采用移动法
  * @param {Array} arr 进行排序的数组
  */
 
