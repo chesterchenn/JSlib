@@ -1,9 +1,9 @@
 /**
  * 随机生成整数
- * @param {number} count 生成的个数, 默认为10
- * @param {number} range 生成数的范围，默认为100
- * @param {boolean} flag 生成的数字是否允许重复，默认为否
- * @return {Array} 返回生成的整数组
+ * @param {number} count 个数, 默认为10
+ * @param {number} range 范围，默认为100
+ * @param {boolean} flag 是否允许重复，默认为否
+ * @return {Array} 返回生成的数组
  */
 
 var randomInt = function(count = 10, range = 100, flag = false) {
