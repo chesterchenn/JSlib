@@ -3,7 +3,7 @@ import moment from 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/mome
 
 /**
  * 比较数组排序耗时
- * @param {number} 循环测试次数
+ * @param {number} loop 循环测试次数
  */
 
 var compareSort = function(loop = 3) {
