@@ -1,77 +1,58 @@
-/*
- * 自底向上的归并排序
- * @param {array} 进行排序的数组
- * @return {array} 排序后的数组
+/**
+ * 归并操作，用来归并两个有序数组，A[lo..mid], A[mid+1...hi]
+ * @param {Array} arr 进行归并的数组
+ * @param {number} lo 数组的起始位置
+ * @param {number} mid 数组的中间位置
+ * @param {number} hi 数组的结束位置
  */
-var mergeSort = function(arr) {
-  var arrCopy = []
-   /*
-    * 原地归并的方法
-    * @param {array} 要归并的数组
-    * @param {number} 数组起始位置
-    * @param {number} 数组中间位置
-    * @param {number} 数组结束位置
-    * @return {array} 归并后的数组
-    */
-  var merge = function(a, low, mid, high) {
-    for(var k = low; k <= high; k++) {
-      arrCopy[k] = a[k]
-    }
-    var i = low, j = mid + 1
-    for (var k = low; k <= high; k++) {
-      if (i > mid)                      a[k] = arrCopy[j++]  // 左半边用尽(取右半边的元素)
-      else if (j > high)                a[k] = arrCopy[i++]  // 右半边用尽(取左半边的元素)
-      else if (arrCopy[i] <= arrCopy[j]) a[k] = arrCopy[i++]  // 左半边的当前元素小于右半边的当前元素(取左半边的当前元素)
-      else                              a[k] = arrCopy[j++]  // 右半边的当前元素小于左半边的当前元素(取右半边的当前元素)
-    }
-    return a
+var merge = function(arr, lo, mid, hi) {
+  var temp = [];
+  for (var i = lo; i <= hi; i++) {
+    temp[i] = arr[i];
   }
   
-  var len = arr.length
-  for(var size = 1; size < len; size = size * 2) {
-    for (low = 0; low < len - size; low += size * 2) {
-      merge(arr, low, low + size - 1, Math.min(low + size * 2 - 1, len - 1))
+  var j = mid + 1, i = lo;
+  while (lo <= mid && j <= hi) {
+    if (temp[lo] < temp[j]) {
+      arr[i++] = temp[lo++];
+    } else {
+      arr[i++] = temp[j++];
     }
+  }
+
+  while (lo <= mid) {
+    arr[i++] = temp[lo++]; 
+  }
+
+  while (j <= hi) {
+    arr[i++] = temp[j++];
   }
 }
 
-/*
+/**
  * 自顶向下的归并排序
- * @param {array} 进行排序的数组
- * @return {array} 排序后的数组
+ * @param {Array} arr 进行排序的数组
+ * @param {number} lo 数组中最低位
+ * @param {number} hi 数组中最高位
  */
+var mergeSort = function(arr, lo, hi) {
+  if (lo < hi) {
+    var mid = lo + ~~((hi - lo) / 2);
+    mergeSort(arr, lo, mid);
+    mergeSort(arr, mid + 1, hi);
+    merge(arr, lo, mid, hi)
+  }
+}
 
+/**
+ * 自底向上的归并排序
+ * @param {Array} 进行排序的数组
+ */
 var mergeSort = function(arr) {
-  var arrCopy = []    //一次性声明
-   /*
-    * 原地归并的方法
-    * @param {array} 要归并的数组
-    * @param {number} 数组起始位置
-    * @param {number} 数组中间位置
-    * @param {number} 数组结束位置
-    * @return {array} 归并后的数组
-    */
-  var merge = function(a, low, mid, high) {
-    for(var k = low; k <= high; k++) {
-      arrCopy[k] = a[k]
+  var hi = arr.length - 1;
+  for (var step = 1; step < hi; step *= 2) {
+    for (var i = 0; i < hi; i = i + 2 * step) {
+      merge(arr, i, Math.min(i + step - 1, hi), Math.min(i + 2 * step - 1, hi))
     }
-    var i = low, j = mid + 1
-    for (var k = low; k <= high; k++) {
-      if (i > mid)                      a[k] = arrCopy[j++]  // 左半边用尽(取右半边的元素)
-      else if (j > high)                a[k] = arrCopy[i++]  // 右半边用尽(取左半边的元素)
-      else if (arrCopy[i] <= arrCopy[j]) a[k] = arrCopy[i++]  // 左半边的当前元素小于右半边的当前元素(取左半边的当前元素)
-      else                              a[k] = arrCopy[j++]  // 右半边的当前元素小于左半边的当前元素(取右半边的当前元素)
-    }
-    return a
   }
-
-  var sort = function(a, low, high) {
-    if (high <= low) return;
-    var mid = low + (~~((high - low) / 2))
-    sort(a, low, mid)         // 将左半边排序
-    sort(a, mid + 1, high)    // 将右半边排序
-    merge(a, low, mid, high)  // 归并结果
-  }
-  sort(arr, 0, arr.length - 1)
-  return arr
 }
