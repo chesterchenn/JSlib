@@ -56,7 +56,7 @@ var heapify = function(arr, lo, hi) {
 var heapify = function(arr, lo, hi) {
   var temp = arr[lo];
   for (var j = 2 * lo + 1; j <= hi; j = j * 2 + 1) {
-    if (j < n && arr[j] < arr[j+1]) j++;
+    if (j < hi && arr[j] < arr[j+1]) j++;
     if (!(temp < arr[j])) break;
     arr[lo] = arr[j]
     lo = j
