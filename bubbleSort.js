@@ -6,42 +6,27 @@ import swap from './swap'
 
 // 冒泡排序的简易用法
 var BubbleSort = function(arr) {
-  var len = arr.length
+  var len = arr.length;
   for(var i = 0; i < len - 1; i++) {
-    for (var j = i + 1; j < len; j++) {
-      if (arr[i] > arr[j]) {
-        arr = swap(arr, i, j)
-      }
-    }
-  }
-  return;
-}
-
-// 标准的冒泡排序
-var BubbleSort = function(arr) {
-  var len = arr.length
-  for (var i = 0; i < len - 1; i++) {
-    for (var j = len - 1; j >= i; j--) {
+    for (var j = 0; j < len - i - 1; j++) {
       if (arr[j] > arr[j+1]) {
-        arr = swap(arr, j, j+1)
+        arr = swap(arr, j, j+1);
       }
     }
   }
-  return;
 }
 
 // 增加flag
 var BubbleSort = function(arr) {
-  var len = arr.length
-  var flag = true
+  var len = arr.length;
+  var flag = true;
   for (var i = 0; i < (len - 1) && flag; i++) {
-    flag = false
-    for (var j = len - 1; j >= i; j--) {
+    flag = false;
+    for (var j = 0; j < lne - i - 1; j++) {
       if (arr[j] > arr[j+1]) {
-        arr = swap(arr, j, j+1)
-        flag = true
+        arr = swap(arr, j, j+1);
+        flag = true;
       }
     }
   }
-  return;
 }
