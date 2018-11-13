@@ -13,7 +13,7 @@ var selectionSort = function(arr) {
         minIndex = j;
       }
     }
-    swap(arr, i, minIndex);
+    swap(arr[i], arr[minIndex]);
   }
   return;
 }
