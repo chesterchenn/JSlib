@@ -14,7 +14,7 @@ var shellSort = function(arr) {
       var minIndex = i;
       while (minIndex >= gap && arr[minIndex] < arr[minIndex - gap]) {
         // 插入排序采用交换法
-        swap(arr, minIndex, minIndex - gap);
+        swap(arr[minIndex], arr[minIndex-gap]);
         minIndex -= gap;
       }
     }
