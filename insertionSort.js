@@ -8,7 +8,7 @@ var insertionSort = function(arr) {
   var len = arr.length;
   for (var i = 1; i < len; i++) {
     for (var j = i; j > 0 && arr[j] < arr[j-1]; j--) {
-      swap(arr, j, j-1);
+      swap(arr[j], arr[j-1]);
     }
   }
   return;
