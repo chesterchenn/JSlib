@@ -10,7 +10,7 @@ var BubbleSort = function(arr) {
   for(var i = 0; i < len - 1; i++) {
     for (var j = 0; j < len - i - 1; j++) {
       if (arr[j] > arr[j+1]) {
-        arr = swap(arr, j, j+1);
+        arr = swap(arr[j],  arr[j+1]);
       }
     }
   }
@@ -24,7 +24,7 @@ var BubbleSort = function(arr) {
     flag = false;
     for (var j = 0; j < lne - i - 1; j++) {
       if (arr[j] > arr[j+1]) {
-        arr = swap(arr, j, j+1);
+        arr = swap(arr[j], arr[j+1]);
         flag = true;
       }
     }
