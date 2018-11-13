@@ -51,11 +51,11 @@ var partition = function(arr, lo, hi) {
   for (var j = lo; j < hi; j++) {
     if (arr[j] < pivot) {
       if (i !== j) {
-        swap(arr, i, j)
+        swap(arr[i], arr[j])
       }
       i++;
     }
   }
-  swap(arr, i, j);               // 将枢轴元素放入正确的位置
+  swap(arr[i], arr[j]);               // 将枢轴元素放入正确的位置
   return i;
 }
