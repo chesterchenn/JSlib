@@ -42,20 +42,3 @@ var partition = function(arr, lo, hi) {
   arr[lo] = pivot;                 // 将枢轴元素放入正确的位置
   return hi;
 }
-
-// 指针从左往右扫描
-// 枢轴元素指定为右边第一个元素
-var partition = function(arr, lo, hi) {
-  var pivot = arr[hi];
-  var i = lo;
-  for (var j = lo; j < hi; j++) {
-    if (arr[j] < pivot) {
-      if (i !== j) {
-        swap(arr[i], arr[j])
-      }
-      i++;
-    }
-  }
-  swap(arr[i], arr[j]);               // 将枢轴元素放入正确的位置
-  return i;
-}
