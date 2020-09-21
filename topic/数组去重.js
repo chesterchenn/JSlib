@@ -15,7 +15,7 @@ var uniques = function(arr) {
 //========================================================
 var uniques = function(arr) {
   return arr.filter(function(item, index) {
-  	return arr.indexOf(item) === index;
+    return arr.indexOf(item) === index;
   })
 }
 
