@@ -14,6 +14,6 @@ arr.flat(Infinity);
 //===================
 var flat = function(arr) {
   return arr.reduce(function(acc, val) {
-    return acc.concat(Array.isArray(acc) > 0 ? flat(val) : val);
+    return acc.concat(Array.isArray(acc) ? flat(val) : val);
   }, [])
 }
