@@ -1,5 +1,7 @@
 // fork from https://github.com/then/promise/blob/master/src/core.js
 // 个人笔记
+// 这里只实现了 promise 和 then 方法
+// Promise.resolve，Promise.all，Promise.reject 和 Promise.prototype.catch 请查看 es6-extensions
 
 'use strict';
 
@@ -73,6 +75,7 @@ Promise.prototype.then = function (onFulfilled, onRejected) {
   return res;
 };
 
+// 当 then 的构造函数不是 Promise 时，使用 safeThen 函数
 function safeThen(self, onFulfilled, onRejected) {
   return new self.constructor(function (resolve, reject) {
     var res = new Promise(noop);
@@ -82,6 +85,7 @@ function safeThen(self, onFulfilled, onRejected) {
 }
 
 function handle(self, deferred) {
+  // ? 没有终止条件，当 state === 3 时，不是一直循环执行
   while (self._state === 3) {
     self = self._value;
   }
@@ -125,6 +129,7 @@ function handleResolved(self, deferred) {
   });
 }
 
+// Promise 执行 resolve 函数
 function resolve(self, newValue) {
   if (newValue === self) {
     return reject(self, new TypeError('A promise cannnot be resolved with itself.'));
@@ -149,6 +154,7 @@ function resolve(self, newValue) {
   finale(self);
 }
 
+// Promise 执行 reject 函数
 function reject(self, newValue) {
   self._state = 2;
   self._value = newValue;
@@ -177,6 +183,8 @@ function Handler(onFulfilled, onRejected, promise) {
   this.promise = promise;
 }
 
+// 执行 Promise 函数
+// new Promise((resolve, reject) => {})
 function doResolve(fn, promise) {
   var done = false;
   var res = tryCallTwo(
