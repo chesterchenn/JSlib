@@ -2,11 +2,12 @@
  * 格式化千分位
  */
 function formatqty(number, qty) {
-  const i = `${Math.abs(parseInt(String(number), 10))}`;
-  if (isNaN(Number(i))) return number;
+  num = Number(number);
+  if (number === '' || isNaN(num)) return number;
+  const i = `${Math.abs(parseInt(String(num), 10))}`;
 
-  const negative = +number < 0 ? '-' : '';
-  const tail = String(Math.abs(number)).slice(i.length);
+  const negative = num < 0 ? '-' : '';
+  const tail = String(Math.abs(num)).slice(i.length);
   let j = i.length > 3 ? i.length % 3 : 0;
   return (
     negative +
