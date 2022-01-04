@@ -2,7 +2,7 @@
  * 格式化千分位
  */
 function formatqty(number, qty) {
-  num = Number(number);
+  const num = Number(number);
   if (number === '' || isNaN(num)) return number;
   const i = `${Math.abs(parseInt(String(num), 10))}`;
 
