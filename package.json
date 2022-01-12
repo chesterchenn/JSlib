@@ -1,0 +1,22 @@
+{
+  "name": "jslib",
+  "version": "1.0.0",
+  "description": "一个 JS 简易库",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chesterchenn/JSlib.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chesterchenn/JSlib/issues"
+  },
+  "homepage": "https://github.com/chesterchenn/JSlib#readme",
+  "devDependencies": {
+    "mocha": "^9.1.3"
+  }
+}
