@@ -1,44 +1,33 @@
-import swap from './swap';
-
 /**
- * 快速排序 
- * quickSort(arr, 0, arr.length - 1)
+ * 快速排序
  * @param {Array} arr 进行排序的数组
- * @param {number} lo 起始位置
- * @param {number} hi 结束位置
- */ 
-var quickSort = function(arr, lo, hi) {
-  if (lo < hi) {
-    var p = partition(arr, lo, hi);
-    quickSort(arr, lo, p - 1);        // 对左半部排序
-    quickSort(arr, p + 1, hi);        // 对右半部排序
-  }
-  return;
-}
-
-
-/**
- * 快速排序的切分
- * @param {Array} arr 切分的数组
- * @param {number} lo 切分数组的起始位置
- * @param {number} hi 切分数组的结束位置
- * @return {number} 返回切分位置
  */
 
-// 左右指针，从左右两边往中间扫描
-// 枢轴元素指定为左边第一个元素
-var partition = function(arr, lo, hi) {            
-  var pivot = arr[lo];           // 枢轴元素
-  while(lo < hi) {
-    while(lo < hi && arr[hi] >= pivot) hi--;
-    if (lo < hi) {
-      arr[lo++] = arr[hi];
-    }
-    while(lo < hi && arr[lo] <= pivot) lo++;
-    if (lo < hi) {
-      arr[hi--] = arr[lo];
-    }
+const quickSort = (arr) => {
+  if (arr.length <= 1) {
+    return arr;
   }
-  arr[lo] = pivot;                 // 将枢轴元素放入正确的位置
-  return hi;
-}
+
+  let pivot = arr[0];
+  let leftArr = [];
+  let rightArr = [];
+
+  arr.forEach((item, index) => {
+    if (index === 0) return;
+    if (item < pivot) {
+      leftArr.push(item);
+    } else {
+      rightArr.push(item);
+    }
+  });
+
+  return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
+};
+
+const a = [1, 8, 3, 18, 12, 10, 11];
+const b = [88, 17, 19, 29, 1, 30];
+
+const qsa = quickSort(a);
+const qsb = quickSort(b);
+console.log(qsa);
+console.log(qsb);
